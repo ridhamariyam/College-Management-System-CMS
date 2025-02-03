@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
-from .import HodViews, StaffViews, StudentViews
+from .import HodViews, StaffViews, StudentViews, dashboardViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -93,6 +93,10 @@ urlpatterns = [
     path('admin_get_attendance_student/', HodViews.admin_get_attendance_student, name="admin_get_attendance_student"),
     path('admin_profile/', HodViews.admin_profile, name="admin_profile"),
     path('admin_profile_update/', HodViews.admin_profile_update, name="admin_profile_update"),
+
+    # URL for Dashboard
+
+    path('dashboard/', dashboardViews.view_dashboard, name="dashboard"),
     
 
 ]

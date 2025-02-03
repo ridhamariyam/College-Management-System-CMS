@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/@heroicons/24@1.0.0/outline/style.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 flex h-screen m-0 font-sans">
+    <aside class="w-64 bg-white border-r border-gray-200 p-5 flex flex-col items-start">
+        <div class="flex items-center gap-3 mb-6">
+            <img class="w-10 h-10 rounded-lg" src="https://avatars.githubusercontent.com/u/103844468?s=280&v=4" alt="">
+            <h1 class="text-2xl font-bold text-[#2B3674]">HORIZON</h1>
+        </div>
+
+        <nav class="w-full mt-5 border-t border-gray-200 pt-5 ">
+
+            <a href="#"
+                class="flex items-center gap-3 px-4 py-3 rounded-md text-[#4318FF] text-sm  font-semibold mb-2 hover:bg-[#4318FF]/5 relative">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                    <path fill-rule="evenodd"
+                        d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z"
+                        clip-rule="evenodd" />
+                </svg>
+
+                Dashboard
+                <div class="h-9 w-1 rounded-full bg-[#4318FF] absolute right-0 "></div>
+            </a>
+        </nav>
+    </aside>
+</body>
+
+</html>

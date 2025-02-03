@@ -1,0 +1,270 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Charts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <script defer src="{% static 'chart/script.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script defer src="{% static 'chart/chart-js/spentChart.js' %}"></script>
+    <script defer src="{% static 'chart/chart-js/revenueChart.js' %}"></script>
+    <script defer src="{% static 'chart/chart-js/traffic-chart.js' %}"></script>
+    <script defer src="{% static 'chart/chart-js/pie-chart.js' %}"></script>
+
+</head>
+
+<body class="pb-10 font-sans">
+    <section class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-6 gap-5 p-5 text-[#2B3674]">
+        <div class="flex gap-3 bg-white p-5 rounded-2xl items-center">
+            <div class="flex justify-center items-center w-14 h-14 rounded-full bg-[#4318ff]/5">
+                <i class="fa-solid fa-chart-simple text-[#4318ff] text-2xl"></i>
+            </div>
+            <div>
+                <h3 class="text-sm text-[#2B3674]/50 ">Earnings</h3>
+                <h3 class="font-bold text-2xl">$350.4</h3>
+            </div>
+        </div>
+
+        <div class="flex gap-3 bg-white p-5 rounded-2xl items-center ">
+            <div class="flex justify-center items-center w-14 h-14 rounded-full bg-[#4318ff]/5">
+                <i class="fa-solid fa-dollar-sign text-[#4318ff] text-2xl"></i>
+            </div>
+            <div>
+                <h3 class="text-sm text-[#2B3674]/50">Spend this month</h3>
+                <h3 class="font-bold text-2xl">$642.39</h3>
+            </div>
+        </div>
+
+        <div class="flex gap-3 bg-white p-5 rounded-2xl items-center ">
+            <div>
+                <h3 class="text-sm text-[#2B3674]/50">Spend this month</h3>
+                <h3 class="font-bold text-2xl">$642.39</h3>
+                <p class="text-[12px] text-[#2B3674]/50"><span class="text-[#05CD99]">+23%</span> since last month</p>
+            </div>
+        </div>
+
+        <div class="flex gap-3 bg-white p-5 rounded-2xl items-center justify-between ">
+            <div>
+                <h3 class="text-sm text-[#2B3674]/50">Your Balance</h3>
+                <h3 class="font-bold text-2xl">$1,000</h3>
+            </div>
+            <img class="w-10 h-10 rounded-full"
+                src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA4L3BkbWlzYzJiYXRjaDItbG9jOTc1MTU1NDktaW1hZ2VfNS5qcGc.jpg"
+                alt="">
+        </div>
+
+        <div class="flex gap-3 bg-white p-5 rounded-2xl items-center">
+            <div class="flex justify-center items-center w-14 h-14 rounded-full bg-[#4318ff]/5">
+                <img src="https://play-lh.googleusercontent.com/TWJILV6-L-X9_XQrDUs886jkXDjnTzYJZJy0_bj9rdP5QEEjY1umxDax-fwIUpZLEZk=w240-h480-rw"
+                    alt="">
+            </div>
+            <div>
+                <h3 class="text-sm text-[#2B3674]/50">New Tasks</h3>
+                <h3 class="font-bold text-2xl">154</h3>
+            </div>
+        </div>
+
+        <div class="flex gap-3 bg-white p-5 rounded-2xl items-center">
+            <div class="flex justify-center items-center w-14 h-14 rounded-full bg-[#4318ff]/5">
+                <i class="fa-solid fa-paste text-[#4318ff] text-2xl"></i>
+            </div>
+            <div>
+                <h3 class="text-sm text-[#2B3674]/50">Total Projects</h3>
+                <h3 class="font-bold text-2xl">2935</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid grid-cols-1 gap-5 px-5 text-[#2B3674]  sm:grid-cols-2 text-[#2B3674] ">
+        <div class=" w-full p-6 bg-white rounded-2xl">
+
+            <div class="flex justify-between text-sm">
+                <input type="date" class="appearance-none">
+                <i class="fa-solid fa-chart-simple text-[#4318ff] text-sm"></i>
+            </div>
+
+            <div class="flex overflow-hidden">
+                <div class="flex pt-5 ">
+                    <div>
+                        <h3 class="font-bold text-2xl">$37.5K</h3>
+                        <p class="text-[12px] text-[#2B3674]/50"> Total Spent <span
+                                class="text-[#05CD99] ms-2 font-semibold text-sm">+2.45%</span>
+                        </p>
+                        <div class="flex gap-2 item-center mt-2">
+                            <i class="fa-solid fa-circle-check text-[#05CD99] text-sm"></i>
+                            <h3 class="text-sm text-[#05CD99]">On track</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="chart" class="w-full "></div>
+            </div>
+
+        </div>
+
+        <div class=" w-full p-6 bg-white rounded-2xl">
+
+            <div class="flex justify-between text-sm">
+                <h1 class="text-2xl font-semibold">Weekly Revenue</h1>
+                <i class="fa-solid fa-chart-simple text-[#4318ff] text-sm"></i>
+            </div>
+
+            <div id="revenueChart" class="w-full h-80 overflow-hidden"></div>
+
+        </div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 p-5 text-[#2B3674]">
+        <div class="flex flex-col gap-5 bg-white p-5 rounded-2xl justify-start">
+            <i class="fa-solid fa-fingerprint text-5xl text-[#4318FF]"></i>
+
+            <h1 class="text-2xl">Control card security in-app with a tap</h1>
+            <p class="text-sm text-[#2B3674]/50">Discover our cards benefits, with one tap.</p>
+            <button class="w-full bg-[#4318FF] text-white rounded-2xl h-10">Cards</button>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl ">
+            <div class="flex justify-between item-center w-full">
+                <div class="flex gap-5 justify-between item-center">
+                    <input type="checkbox" checked class="bg-[#4318ff]">
+                    <h1 class="font-semibold mt-1">Task</h1>
+                </div>
+                <div class=" px-2 py-1 rounded-lg bg-[#F4F7FE]">
+                    <i class="fa-solid fa-ellipsis text-sm"></i>
+                </div>
+            </div>
+
+            <ul class="mt-5">
+                <li>
+                    <div class="flex justify-between item-center w-full">
+                        <div class="flex gap-5 item-center">
+                            <input type="checkbox" checked class="bg-[#4318ff]">
+                            <h1 class="font-semibold mt-1">Landing Page Design</h1>
+                        </div>
+                        <div class=" px-2 py-1 rounded-lg ">
+                            <i class="fa-solid fa-ellipsis-vertical text-[#2B3674]/50"></i>
+                            <i class="fa-solid fa-ellipsis-vertical text-[#2B3674]/50"></i>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex justify-between item-center w-full">
+                        <div class="flex gap-5 item-center">
+                            <input type="checkbox" checked class="bg-[#4318ff]">
+                            <h1 class="font-semibold mt-1">Landing Page Design</h1>
+                        </div>
+                        <div class=" px-2 py-1 rounded-lg ">
+                            <i class="fa-solid fa-ellipsis-vertical text-[#2B3674]/50"></i>
+                            <i class="fa-solid fa-ellipsis-vertical text-[#2B3674]/50"></i>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex justify-between item-center w-full">
+                        <div class="flex gap-5 item-center">
+                            <input type="checkbox" checked class="bg-[#4318ff]">
+                            <h1 class="font-semibold mt-1">Dashboard Builder</h1>
+                        </div>
+                        <div class=" px-2 py-1 rounded-lg ">
+                            <i class="fa-solid fa-ellipsis-vertical text-[#2B3674]/50"></i>
+                            <i class="fa-solid fa-ellipsis-vertical text-[#2B3674]/50"></i>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex justify-between item-center w-full">
+                        <div class="flex gap-5 item-center">
+                            <input type="checkbox" checked class="bg-[#4318ff]">
+                            <h1 class="font-semibold mt-1">Mobile App Design</h1>
+                        </div>
+                        <div class=" px-2 py-1 rounded-lg ">
+                            <i class="fa-solid fa-ellipsis-vertical text-[#2B3674]/50"></i>
+                            <i class="fa-solid fa-ellipsis-vertical text-[#2B3674]/50"></i>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex justify-between item-center w-full">
+                        <div class="flex gap-5 item-center">
+                            <input type="checkbox" checked class="bg-[#4318ff]">
+                            <h1 class="font-semibold mt-1">Illustration</h1>
+                        </div>
+                        <div class=" px-2 py-1 rounded-lg ">
+                            <i class="fa-solid fa-ellipsis-vertical text-[#2B3674]/50"></i>
+                            <i class="fa-solid fa-ellipsis-vertical text-[#2B3674]/50"></i>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex justify-between item-center w-full">
+                        <div class="flex gap-5 item-center">
+                            <input type="checkbox" checked class="bg-[#4318ff]">
+                            <h1 class="font-semibold mt-1">Promotional LP</h1>
+                        </div>
+                        <div class=" px-2 py-1 rounded-lg ">
+                            <i class="fa-solid fa-ellipsis-vertical text-[#2B3674]/50"></i>
+                            <i class="fa-solid fa-ellipsis-vertical text-[#2B3674]/50"></i>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class=" bg-white p-5 rounded-2xl ">
+            <div class="flex justify-between item-center w-full">
+                <div>
+                    <h3 class="text-sm text-[#2B3674]/50">Daily Traffic</h3>
+                    <h3 class="font-bold text-2xl">2.579 <span class="text-sm text-[#2B3674]/50">Visitors</span></h3>
+                </div>
+                <div class="flex gap-2 item-center mt-2">
+                    <i class="fa-solid fa-circle-check text-[#05CD99] text-sm"></i>
+                    <h3 class="text-sm text-[#05CD99]">On track</h3>
+                </div>
+            </div>
+            <div id="dailyTrafficChart" class="w-full h-80 "></div>
+        </div>
+
+        <div class=" bg-white p-5 rounded-2xl ">
+            <div class="flex justify-between item-center w-full">
+                <h1 class="font-semibold">Your Pie Chart</h1>
+                <h1 class="text-[#2B3674]/50">Monthly</h1>
+            </div>
+            <div class="flex justify-center item-center">
+                <div id="pieChart" class="w-full h-80 "></div>
+            </div>
+            <!-- <div class="flex justify-around w-full gap-5 px-10">
+                <div>
+                    <h1>Your Files</h1>
+                    <h1>65%</h1>
+                </div>
+                <br>
+                <div>
+                    <h1>Your Files</h1>
+                    <h1>65%</h1>
+                </div>
+            </div> -->
+        </div>
+
+    </section>
+</body>
+
+</html>

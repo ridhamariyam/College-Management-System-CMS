@@ -18916,9 +18916,9 @@ var defaultClientFonts = {
 	}
 };
 
-function Document(docDefinition, tableLayouts, fonts, vfs) {
+function Document(docDefinition, tableDashboard/layouts, fonts, vfs) {
 	this.docDefinition = docDefinition;
-	this.tableLayouts = tableLayouts || null;
+	this.tableDashboard/layouts = tableDashboard/layouts || null;
 	this.fonts = fonts || defaultClientFonts;
 	this.vfs = vfs;
 }
@@ -18933,8 +18933,8 @@ function canCreatePdf() {
 
 Document.prototype._createDoc = function (options) {
 	options = options || {};
-	if (this.tableLayouts) {
-		options.tableLayouts = this.tableLayouts;
+	if (this.tableDashboard/layouts) {
+		options.tableDashboard/layouts = this.tableDashboard/layouts;
 	}
 
 	var PdfPrinter = __webpack_require__(219);
@@ -19116,13 +19116,13 @@ Document.prototype.getStream = function (options) {
 };
 
 module.exports = {
-	createPdf: function (docDefinition, tableLayouts, fonts, vfs) {
+	createPdf: function (docDefinition, tableDashboard/layouts, fonts, vfs) {
 		if (!canCreatePdf()) {
 			throw 'Your browser does not provide the level of support needed';
 		}
 		return new Document(
 			docDefinition,
-			tableLayouts || global.pdfMake.tableLayouts,
+			tableDashboard/layouts || global.pdfMake.tableDashboard/layouts,
 			fonts || global.pdfMake.fonts,
 			vfs || global.pdfMake.vfs
 		);
@@ -19535,9 +19535,9 @@ PdfPrinter.prototype.createPdfKitDocument = function (docDefinition, options) {
 
 	var builder = new LayoutBuilder(pageSize, fixPageMargins(docDefinition.pageMargins), new ImageMeasure(this.pdfKitDoc, docDefinition.images), new SVGMeasure());
 
-	registerDefaultTableLayouts(builder);
-	if (options.tableLayouts) {
-		builder.registerTableLayouts(options.tableLayouts);
+	registerDefaultTableDashboard/layouts(builder);
+	if (options.tableDashboard/layouts) {
+		builder.registerTableDashboard/layouts(options.tableDashboard/layouts);
 	}
 
 	var pages = builder.layoutDocument(docDefinition.content, this.fontProvider, docDefinition.styles || {}, docDefinition.defaultStyle || {
@@ -19674,8 +19674,8 @@ function fixPageMargins(margin) {
 	return margin;
 }
 
-function registerDefaultTableLayouts(layoutBuilder) {
-	layoutBuilder.registerTableLayouts({
+function registerDefaultTableDashboard/layouts(layoutBuilder) {
+	layoutBuilder.registerTableDashboard/layouts({
 		noBorders: {
 			hLineWidth: function (i) {
 				return 0;
@@ -61087,11 +61087,11 @@ function LayoutBuilder(pageSize, pageMargins, imageMeasure, svgMeasure) {
 	this.tracker = new TraversalTracker();
 	this.imageMeasure = imageMeasure;
 	this.svgMeasure = svgMeasure;
-	this.tableLayouts = {};
+	this.tableDashboard/layouts = {};
 }
 
-LayoutBuilder.prototype.registerTableLayouts = function (tableLayouts) {
-	this.tableLayouts = pack(this.tableLayouts, tableLayouts);
+LayoutBuilder.prototype.registerTableDashboard/layouts = function (tableDashboard/layouts) {
+	this.tableDashboard/layouts = pack(this.tableDashboard/layouts, tableDashboard/layouts);
 };
 
 /**
@@ -61171,7 +61171,7 @@ LayoutBuilder.prototype.layoutDocument = function (docStructure, fontProvider, s
 	}
 
 	this.docPreprocessor = new DocPreprocessor();
-	this.docMeasure = new DocMeasure(fontProvider, styleDictionary, defaultStyle, this.imageMeasure, this.svgMeasure, this.tableLayouts, images);
+	this.docMeasure = new DocMeasure(fontProvider, styleDictionary, defaultStyle, this.imageMeasure, this.svgMeasure, this.tableDashboard/layouts, images);
 
 
 	function resetXYs(result) {
@@ -62141,12 +62141,12 @@ var qrEncoder = __webpack_require__(448);
 /**
  * @private
  */
-function DocMeasure(fontProvider, styleDictionary, defaultStyle, imageMeasure, svgMeasure, tableLayouts, images) {
+function DocMeasure(fontProvider, styleDictionary, defaultStyle, imageMeasure, svgMeasure, tableDashboard/layouts, images) {
 	this.textTools = new TextTools(fontProvider);
 	this.styleStack = new StyleContextStack(styleDictionary, defaultStyle);
 	this.imageMeasure = imageMeasure;
 	this.svgMeasure = svgMeasure;
-	this.tableLayouts = tableLayouts;
+	this.tableDashboard/layouts = tableDashboard/layouts;
 	this.images = images;
 	this.autoImageIndex = 1;
 }
@@ -62674,7 +62674,7 @@ DocMeasure.prototype.measureColumns = function (node) {
 
 DocMeasure.prototype.measureTable = function (node) {
 	extendTableWidths(node);
-	node._layout = getLayout(this.tableLayouts);
+	node._layout = getLayout(this.tableDashboard/layouts);
 	node._offsets = getOffsets(node._layout);
 
 	var colSpans = [];
@@ -62733,11 +62733,11 @@ DocMeasure.prototype.measureTable = function (node) {
 		};
 	}
 
-	function getLayout(tableLayouts) {
+	function getLayout(tableDashboard/layouts) {
 		var layout = node.layout;
 
 		if (isString(layout)) {
-			layout = tableLayouts[layout];
+			layout = tableDashboard/layouts[layout];
 		}
 
 		var defaultLayout = {

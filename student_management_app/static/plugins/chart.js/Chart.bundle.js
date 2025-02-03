@@ -7025,10 +7025,10 @@ function wrapBoxes(boxes) {
 	return layoutBoxes;
 }
 
-function setLayoutDims(layouts, params) {
+function setLayoutDims(Dashboard/layouts, params) {
 	var i, ilen, layout;
-	for (i = 0, ilen = layouts.length; i < ilen; ++i) {
-		layout = layouts[i];
+	for (i = 0, ilen = Dashboard/layouts.length; i < ilen; ++i) {
+		layout = Dashboard/layouts[i];
 		// store width used instead of chartArea.w in fitBoxes
 		layout.width = layout.horizontal
 			? layout.box.fullWidth && params.availableWidth
@@ -7210,7 +7210,7 @@ core_defaults._set('global', {
 // The layout service is very self explanatory.  It's responsible for the layout within a chart.
 // Scales, Legends and Plugins all rely on the layout service and can easily register to be placed anywhere they need
 // It is this service's responsibility of carrying out that layout.
-var core_layouts = {
+var core_Dashboard/layouts = {
 	defaults: {},
 
 	/**
@@ -8113,7 +8113,7 @@ var core_scaleService = {
 			scale.fullWidth = scale.options.fullWidth;
 			scale.position = scale.options.position;
 			scale.weight = scale.options.weight;
-			core_layouts.addBox(chart, scale);
+			core_Dashboard/layouts.addBox(chart, scale);
 		});
 	}
 };
@@ -9252,7 +9252,7 @@ function updateConfig(chart) {
 	var newOptions = chart.options;
 
 	helpers$1.each(chart.scales, function(scale) {
-		core_layouts.removeBox(chart, scale);
+		core_Dashboard/layouts.removeBox(chart, scale);
 	});
 
 	newOptions = mergeConfig(
@@ -9681,7 +9681,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 			return;
 		}
 
-		core_layouts.update(this, this.width, this.height);
+		core_Dashboard/layouts.update(this, this.width, this.height);
 
 		me._layers = [];
 		helpers$1.each(me.boxes, function(box) {
@@ -20302,8 +20302,8 @@ function createNewLegendAndAttach(chart, legendOpts) {
 		chart: chart
 	});
 
-	core_layouts.configure(chart, legend, legendOpts);
-	core_layouts.addBox(chart, legend);
+	core_Dashboard/layouts.configure(chart, legend, legendOpts);
+	core_Dashboard/layouts.addBox(chart, legend);
 	chart.legend = legend;
 }
 
@@ -20335,13 +20335,13 @@ var plugin_legend = {
 			helpers$1.mergeIf(legendOpts, core_defaults.global.legend);
 
 			if (legend) {
-				core_layouts.configure(chart, legend, legendOpts);
+				core_Dashboard/layouts.configure(chart, legend, legendOpts);
 				legend.options = legendOpts;
 			} else {
 				createNewLegendAndAttach(chart, legendOpts);
 			}
 		} else if (legend) {
-			core_layouts.removeBox(chart, legend);
+			core_Dashboard/layouts.removeBox(chart, legend);
 			delete chart.legend;
 		}
 	},
@@ -20546,8 +20546,8 @@ function createNewTitleBlockAndAttach(chart, titleOpts) {
 		chart: chart
 	});
 
-	core_layouts.configure(chart, title, titleOpts);
-	core_layouts.addBox(chart, title);
+	core_Dashboard/layouts.configure(chart, title, titleOpts);
+	core_Dashboard/layouts.addBox(chart, title);
 	chart.titleBlock = title;
 }
 
@@ -20579,13 +20579,13 @@ var plugin_title = {
 			helpers$1.mergeIf(titleOpts, core_defaults.global.title);
 
 			if (titleBlock) {
-				core_layouts.configure(chart, titleBlock, titleOpts);
+				core_Dashboard/layouts.configure(chart, titleBlock, titleOpts);
 				titleBlock.options = titleOpts;
 			} else {
 				createNewTitleBlockAndAttach(chart, titleOpts);
 			}
 		} else if (titleBlock) {
-			core_layouts.removeBox(chart, titleBlock);
+			core_Dashboard/layouts.removeBox(chart, titleBlock);
 			delete chart.titleBlock;
 		}
 	}
@@ -20618,7 +20618,7 @@ core_controller.defaults = core_defaults;
 core_controller.Element = core_element;
 core_controller.elements = elements;
 core_controller.Interaction = core_interaction;
-core_controller.layouts = core_layouts;
+core_controller.Dashboard/layouts = core_Dashboard/layouts;
 core_controller.platform = platform;
 core_controller.plugins = core_plugins;
 core_controller.Scale = core_scale;
@@ -20708,13 +20708,13 @@ core_controller.PluginBase = core_controller.Element.extend({});
 core_controller.canvasHelpers = core_controller.helpers.canvas;
 
 /**
- * Provided for backward compatibility, use Chart.layouts instead.
- * @namespace Chart.layoutService
+ * Provided for backward compatibility, use Chart.Dashboard/layouts instead.
+ * @namespace Chart.Dashboard/layoutservice
  * @deprecated since version 2.7.3
  * @todo remove at version 3
  * @private
  */
-core_controller.layoutService = core_controller.layouts;
+core_controller.Dashboard/layoutservice = core_controller.Dashboard/layouts;
 
 /**
  * Provided for backward compatibility, not available anymore.

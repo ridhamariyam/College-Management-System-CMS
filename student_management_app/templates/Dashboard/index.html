@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-[#F4F7FE] overflow-hidden">
+    <div class="flex w-full h-screen relative">
+        <div id="sidebarBackdrop" class="fixed inset-0 bg-black/50 z-20 hidden md:hidden"></div>
+
+        <!-- Sidebar -->
+        <div id="sidebar" class="w-[240px] h-screen fixed left-0 top-0 z-30 transition-transform duration-300 md:translate-x-0">
+            {% include 'Dashboard/sidebar/sidebar.html' %}
+        </div>
+
+        <!-- Main Content -->
+        <main id="mainContent" class="flex-1 w-full h-screen overflow-y-auto md:ml-[240px]">
+            <header class="sticky top-0 z-10 flex justify-between items-center mb-[20px] p-5">
+                <div class="flex items-center gap-4">
+                    <button id="sidebarToggle"
+                        class="w-10 h-10 bg-[#eaedf4] rounded-full flex items-center justify-center md:hidden">
+                        <i class="fas fa-bars text-gray-700 text-[20px]"></i>
+                    </button>
+                    <div class="relative flex items-center">
+                        <input type="text" placeholder="Search"
+                            class="p-[10px] pl-[15px] text-sm w-[300px] hidden md:block rounded-lg">
+                        <i class="fa-solid fa-magnifying-glass text-gray-500 text-sm md:absolute md:right-5 hidden md:block"></i>
+                        <div class="w-10 h-10 bg-[#eaedf4] rounded-full flex items-center justify-center md:hidden">
+                            <i class="fa-solid fa-magnifying-glass text-gray-500 text-lg md:absolute md:right-5"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-[#eaedf4] rounded-full flex items-center justify-center">
+                        <img src="https://thumbs.dreamstime.com/b/india-paper-flag-patriotic-background-national-138241478.jpg"
+                            alt="flag" class="w-6 h-6 rounded-full object-cover">
+                    </div>
+                    <div class="w-10 h-10 bg-[#eaedf4] rounded-full flex items-center justify-center relative">
+                        <i class="fa-regular fa-bell text-gray-700 text-lg"></i>
+                        <span class="absolute top-3 right-3 inline-block w-2 h-2 bg-red-600 rounded-full"></span>
+                    </div>
+                    <img src="https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="img" class="w-[40px] h-[40px] rounded-full object-cover">
+                </div>
+            </header>
+
+            <!-- Charts Section -->
+            <div class="w-full h-[calc(100vh-100px)] p-5">
+                {% include 'Dashboard/chart/charts.html' %}
+            </div>
+
+        </main>
+    </div>
+</body>
+
+</html>
